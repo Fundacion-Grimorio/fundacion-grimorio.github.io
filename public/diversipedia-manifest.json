@@ -1,0 +1,13 @@
+
+[
+  {
+    "id": "ejemplo-derechos-basicos",
+    "name": "Ejemplo: Guía de Derechos Básicos",
+    "basePath": "/diversipedia_data/ejemplo-derechos-basicos/"
+  },
+  {
+    "id": "ejemplo-salud-mental",
+    "name": "Ejemplo: Apoyo en Salud Mental",
+    "basePath": "/diversipedia_data/ejemplo-salud-mental/"
+  }
+]
