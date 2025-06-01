@@ -53,11 +53,11 @@ const DiversipediaPage: React.FC<DiversipediaPageProps> = ({ openDiversipediaIte
             const configPath = `${entry.basePath}config.json`;
             const contentPath = `${entry.basePath}content.md`;
 
-            console.log(`Attempting to fetch config: ${configPath}`); // DEBUG
+            // console.log(`Attempting to fetch config: ${configPath}`); // DEBUG
             const configResponse = await fetch(configPath);
             if (!configResponse.ok) throw new Error(`Error al cargar config.json para ${entry.name}: ${configResponse.statusText} (path: ${configPath})`);
             
-            console.log(`Attempting to fetch content: ${contentPath}`); // DEBUG
+            // console.log(`Attempting to fetch content: ${contentPath}`); // DEBUG
             const contentResponse = await fetch(contentPath);
             if (!contentResponse.ok) throw new Error(`Error al cargar content.md para ${entry.name}: ${contentResponse.statusText} (path: ${contentPath})`);
             
@@ -90,7 +90,7 @@ const DiversipediaPage: React.FC<DiversipediaPageProps> = ({ openDiversipediaIte
 
             return { id: entry.id, ...configData, fullContent: itemSections };
           } catch (loadError: any) {
-            console.error(`Error cargando datos del ítem ${entry.name}:`, loadError.message); // Log full error message
+            console.error(`Error cargando datos del ítem ${entry.name}:`, loadError.message); 
             toast.error(`Fallo al cargar ítem: ${entry.name}`);
             return null;
           }
@@ -130,14 +130,14 @@ const DiversipediaPage: React.FC<DiversipediaPageProps> = ({ openDiversipediaIte
   };
 
   return (
-    <section className="diversipedia-theme py-16 md:py-20 min-h-[calc(100vh-var(--header-height,64px)-var(--footer-height,64px))]"> {/* Added theme class */}
+    <section className="diversipedia-theme py-16 md:py-20 min-h-[calc(100vh-var(--header-height,64px)-var(--footer-height,64px))]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--dp-text-primary)]">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-[var(--dp-text-primary)] rainbow-text-animated">
             Diversipedia
           </h1>
-          <p className="mt-3 text-md sm:text-lg text-[var(--dp-text-secondary)] max-w-xl mx-auto">
-            Un espacio de conocimiento y apoyo para la diversidad.
+          <p className="mt-4 text-md sm:text-lg text-[var(--dp-text-secondary)] max-w-xl mx-auto">
+            Un espacio de conocimiento y apoyo para la diversidad, mujeres niños y personas en situacion vulnerable
           </p>
         </div>
         
@@ -160,7 +160,7 @@ const DiversipediaPage: React.FC<DiversipediaPageProps> = ({ openDiversipediaIte
               aria-label="Filtrar por categoría"
             >
               {DIVERSIPEDIA_CATEGORIES.map(cat => ( 
-                <option key={cat.id} value={cat.id} style={{backgroundColor: 'var(--dp-bg-light)', color: 'var(--dp-text-primary)'}}>{cat.name}</option>
+                <option key={cat.id} value={cat.id}>{cat.name}</option>
               ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[var(--dp-text-secondary)]">
@@ -206,4 +206,4 @@ const DiversipediaPage: React.FC<DiversipediaPageProps> = ({ openDiversipediaIte
   );
 };
 
-export default DiversipediaPage; 
+export default DiversipediaPage;
