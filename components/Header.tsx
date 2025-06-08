@@ -21,7 +21,6 @@ const navItems: HeaderNavItem[] = [
   { name: 'Proyectos', page: 'projects' },
   { name: 'Diversipedia', page: 'diversipedia' }, // Renamed "Recursos" to "Diversipedia"
   { name: 'Asistente AI', page: 'ai' },
-  { name: 'Contacto', page: 'contact' },
 ];
 
 const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
