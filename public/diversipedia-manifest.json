@@ -1,13 +1,7 @@
-
 [
   {
-    "id": "ejemplo-derechos-basicos",
-    "name": "Ejemplo: Guía de Derechos Básicos",
-    "basePath": "/diversipedia_data/ejemplo-derechos-basicos/"
-  },
-  {
-    "id": "ejemplo-salud-mental",
-    "name": "Ejemplo: Apoyo en Salud Mental",
-    "basePath": "/diversipedia_data/ejemplo-salud-mental/"
+    "id": "historia-comunidad-trans",
+    "name": "Historia de la Comunidad Trans en México",
+    "basePath": "/diversipedia_data/historia-comunidad-trans/"
   }
 ]
