@@ -6,7 +6,6 @@ import HeroAsPage from './components/pages/HeroAsPage';
 import AboutUsPage from './components/pages/AboutUsPage';
 import ProjectsPage from './components/pages/ProjectsPage';
 import AIAssistantPage from './components/pages/AIAssistantPage';
-import ContactPage from './components/pages/ContactPage';
 import DiversipediaPage from './components/pages/DiversipediaPage';
 import { ScrollToTopButton } from './components/common/ScrollToTopButton';
 import { ProjectFullView } from './components/projects/ProjectFullView';
@@ -14,7 +13,7 @@ import { Project, DiversipediaItem, ProjectContentSection } from './types';
 import toast from 'react-hot-toast';
 import { Spinner } from './components/common/Spinner';
 
-export type PageName = 'home' | 'about' | 'projects' | 'diversipedia' | 'ai' | 'contact';
+export type PageName = 'home' | 'about' | 'projects' | 'diversipedia' | 'ai';
 
 // Helper function to create a slug from a title string
 const slugify = (text: string): string => {
@@ -282,8 +281,6 @@ const App: React.FC = () => {
         return <DiversipediaPage openDiversipediaItemView={openDiversipediaItemView} />;
       case 'ai':
         return <AIAssistantPage />;
-      case 'contact':
-        return <ContactPage />;
       default:
         // Attempt to navigate to home if page is unrecognized, or show a 404
         navigateTo('home', true);

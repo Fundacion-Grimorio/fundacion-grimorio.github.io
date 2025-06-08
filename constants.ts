@@ -86,8 +86,6 @@ export const FINANCIAMIENTO_FUENTES_LIST = [
 ];
 export const FINANCIAMIENTO_TRANSPARENCIA_TEXT = "La transparencia financiera es clave: cada aportación se traduce en acciones medibles y reportes abiertos a nuestras aliadas.";
 
-export const CONTACTO_TEXT = "¿Quieres sumarte al Grimorio? \nBuscamos aliadas, mentoras, financiadoras, creadoras y soñadoras que crean en el poder de la tecnología al servicio de la humanidad.";
-export const CONTACTO_SLOGAN = "> Juntas escribiremos el futuro, página por página.";
 
 export const GEMINI_SYSTEM_INSTRUCTION = `Eres un asistente virtual de Fundación Grimorio. Tu propósito es responder preguntas sobre la fundación basándote exclusivamente en el siguiente dossier institucional. Sé conciso, amigable y profesional. Si la pregunta no puede ser respondida con la información del dossier, indícalo amablemente. No inventes información.
 
