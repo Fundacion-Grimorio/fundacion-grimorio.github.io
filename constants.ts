@@ -101,4 +101,13 @@ export const DIVERSIPEDIA_CATEGORIES = [ // Renamed from RESOURCE_CATEGORIES
   { id: 'derechos_humanos', name: 'Derechos Humanos Generales' },
   { id: 'asesoria_legal', name: 'Asesoría Legal' },
   { id: 'salud_bienestar', name: 'Salud y Bienestar' },
+  // Nuevas categorías para Diversipedia
+  { id: 'diversidad_sexual_genero', name: 'Diversidad Sexual y de Género' },
+  { id: 'identidad_etnica_racial', name: 'Identidad Étnica y Racial' },
+  { id: 'salud_mental_emocional', name: 'Salud Mental y Emocional' },
+  { id: 'capacidad_neurodivergencia', name: 'Capacidad y Neurodivergencia' },
+  { id: 'violencias_estructurales_resiliencia', name: 'Violencias Estructurales y Resiliencia' },
+  { id: 'infancias_juventudes_diversas', name: 'Infancias y Juventudes Diversas' },
+  { id: 'memoria_resistencia_archivo', name: 'Memoria, Resistencia y Archivo' },
+  { id: 'recursos_practicos', name: 'Recursos Prácticos' },
 ] as const;
