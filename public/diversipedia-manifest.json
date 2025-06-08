@@ -3,5 +3,45 @@
     "id": "historia-comunidad-trans",
     "name": "Historia de la Comunidad Trans en México",
     "basePath": "/diversipedia_data/historia-comunidad-trans/"
+  },
+  {
+    "id": "diversidad-sexual-genero",
+    "name": "Diversidad Sexual y de Género",
+    "basePath": "/diversipedia_data/diversidad-sexual-genero/"
+  },
+  {
+    "id": "identidad-etnica-racial",
+    "name": "Identidad Étnica y Racial",
+    "basePath": "/diversipedia_data/identidad-etnica-racial/"
+  },
+  {
+    "id": "salud-mental-emocional",
+    "name": "Salud Mental y Emocional",
+    "basePath": "/diversipedia_data/salud-mental-emocional/"
+  },
+  {
+    "id": "capacidad-neurodivergencia",
+    "name": "Capacidad y Neurodivergencia",
+    "basePath": "/diversipedia_data/capacidad-neurodivergencia/"
+  },
+  {
+    "id": "violencias-estructurales-resiliencia",
+    "name": "Violencias Estructurales y Resiliencia",
+    "basePath": "/diversipedia_data/violencias-estructurales-resiliencia/"
+  },
+  {
+    "id": "infancias-juventudes-diversas",
+    "name": "Infancias y Juventudes Diversas",
+    "basePath": "/diversipedia_data/infancias-juventudes-diversas/"
+  },
+  {
+    "id": "memoria-resistencia-archivo",
+    "name": "Memoria, Resistencia y Archivo",
+    "basePath": "/diversipedia_data/memoria-resistencia-archivo/"
+  },
+  {
+    "id": "recursos-practicos",
+    "name": "Recursos Prácticos",
+    "basePath": "/diversipedia_data/recursos-practicos/"
   }
 ]
