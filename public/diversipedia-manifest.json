@@ -43,5 +43,10 @@
     "id": "recursos-practicos",
     "name": "Recursos Prácticos",
     "basePath": "/diversipedia_data/recursos-practicos/"
+  },
+  {
+    "id": "queja-derechos-humanos",
+    "name": "Formato de Queja a Derechos Humanos",
+    "basePath": "/diversipedia_data/queja-derechos-humanos/"
   }
 ]
