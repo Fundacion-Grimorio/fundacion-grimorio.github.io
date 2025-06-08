@@ -1,4 +1,5 @@
 ## Literatura desde la Experiencia Discapacitada
+
 Las personas con discapacidad han producido obras que desafían la visión capacitista predominante. Esta sección destaca novelas, ensayos y textos autobiográficos que narran la vida cotidiana y la lucha por la autonomía. Al leer estas perspectivas se visibilizan los obstáculos estructurales que existen, pero también las estrategias de resistencia y la riqueza cultural de las comunidades discapacitadas.
 
 ## Perspectivas Autistas y con TDAH
