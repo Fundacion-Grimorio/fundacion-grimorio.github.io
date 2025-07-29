@@ -1,7 +1,0 @@
-{
-  "title": "Proyecto Delta: Visualización de Datos Avanzada",
-  "imageUrl": "/projects_data/project-delta/delta_cover.jpg",
-  "summary": "Una herramienta interactiva para la visualización de grandes conjuntos de datos, facilitando la toma de decisiones informadas. (Cargado Dinámicamente)",
-  "tags": ["Data Science", "Visualización", "D3.js", "Big Data", "Analytics", "IA"],
-  "date": "2024-08-15"
-}
