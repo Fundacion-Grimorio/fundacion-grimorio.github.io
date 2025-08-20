@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import * as Tone from 'tone';
 import { MenuIcon, DiscordIcon, InstagramIcon, TwitterIcon, GlobeIcon, CartIcon, CogIcon } from './components/Icons';
 
 type View = 'home' | 'quienes-somos' | 'proyectos' | 'modelo';
@@ -12,53 +10,12 @@ const guidedNavItems: { name: string; description: string; view: View }[] = [
     { name: 'Nuestro Modelo', description: 'Cómo generamos impacto', view: 'modelo' },
 ];
 
-const clickSound = new Tone.MetalSynth({
-  envelope: { attack: 0.001, decay: 0.1, release: 0.01 },
-  harmonicity: 3.1,
-  modulationIndex: 32,
-  resonance: 4000,
-  octaves: 1.5,
-}).toDestination();
-
-const menuOpenSound = new Tone.FMSynth({
-    harmonicity: 3,
-    modulationIndex: 10,
-    envelope: { attack: 0.01, decay: 0.2, sustain: 0.1, release: 0.2 },
-}).toDestination();
-
-const menuCloseSound = new Tone.FMSynth({
-    harmonicity: 3,
-    modulationIndex: 10,
-    envelope: { attack: 0.01, decay: 0.2, sustain: 0.1, release: 0.2 },
-}).toDestination();
-
-
-const playClickSound = () => {
-    if (Tone.context.state !== 'running') {
-        Tone.start();
-    }
-    clickSound.triggerAttackRelease("C4", "8n");
-};
-
-const playMenuOpenSound = () => {
-    if (Tone.context.state !== 'running') {
-        Tone.start();
-    }
-    menuOpenSound.triggerAttackRelease("C5", "8n");
-};
-
-const playMenuCloseSound = () => {
-    if (Tone.context.state !== 'running') {
-        Tone.start();
-    }
-    menuCloseSound.triggerAttackRelease("C4", "8n");
-};
 
 const Header = ({ activeSection, scrollToSection, onMenuClick }: { activeSection: View; scrollToSection: (view: View) => void; onMenuClick: () => void }) => (
     <header className="fixed top-0 left-0 right-0 p-8 z-20 bg-brand-light/80 backdrop-blur-sm transition-all duration-300">
         <div className="flex justify-between items-center max-w-[1400px] mx-auto">
             {/* Logo */}
-            <button onClick={() => { playClickSound(); scrollToSection('home'); }} className="font-exo text-3xl font-bold tracking-tighter text-brand-dark">
+            <button onClick={() => { scrollToSection('home'); }} className="font-exo text-3xl font-bold tracking-tighter text-brand-dark">
                 GRIMORIO
             </button>
 
@@ -69,7 +26,6 @@ const Header = ({ activeSection, scrollToSection, onMenuClick }: { activeSection
                         <button
                             key={item.view}
                             onClick={() => {
-                                playClickSound();
                                 scrollToSection(item.view);
                             }}
                             className={`font-grotesk text-sm tracking-widest uppercase transition-colors duration-300 ${activeSection === item.view ? 'text-pink-500' : 'text-brand-dark hover:text-pink-500'}`}
@@ -82,7 +38,7 @@ const Header = ({ activeSection, scrollToSection, onMenuClick }: { activeSection
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-                <button onClick={() => { playMenuOpenSound(); onMenuClick(); }} className="p-2 text-brand-dark" aria-label="Open menu">
+                <button onClick={() => { onMenuClick(); }} className="p-2 text-brand-dark" aria-label="Open menu">
                     <MenuIcon />
                 </button>
             </div>
@@ -98,8 +54,8 @@ const HomeView = ({ scrollToSection }: { scrollToSection: (view: View) => void }
         <p className="font-grotesk text-lg md:text-xl mt-6 text-brand-dark/80 leading-relaxed max-w-3xl">
             Una fundación que nace del deseo de aplicar la tecnología como una fuerza positiva para transformar la realidad. Creemos en el poder de la innovación con propósito y en la capacidad del conocimiento para sanar, construir y empoderar.
         </p>
-        <button 
-            onClick={() => { playClickSound(); scrollToSection('quienes-somos'); }} 
+        <button
+            onClick={() => { scrollToSection('quienes-somos'); }}
             className="mt-12 bg-black text-white font-grotesk text-sm px-10 py-4 tracking-widest uppercase hover:bg-gray-800 transition-colors"
         >
             Conoce Más
@@ -234,46 +190,17 @@ const Footer = () => (
                 &gt; En comunidad, escribiremos el futuro, página por página.
             </p>
             <div className="flex items-center justify-center gap-6 mt-10">
-                <a href="#" onClick={playClickSound} className="hover:text-pink-500 transition-colors"><DiscordIcon /></a>
-                <a href="#" onClick={playClickSound} className="hover:text-pink-500 transition-colors"><InstagramIcon /></a>
-                <a href="#" onClick={playClickSound} className="hover:text-pink-500 transition-colors"><TwitterIcon /></a>
+                <a href="#" className="hover:text-pink-500 transition-colors"><DiscordIcon /></a>
+                <a href="#" className="hover:text-pink-500 transition-colors"><InstagramIcon /></a>
+                <a href="#" className="hover:text-pink-500 transition-colors"><TwitterIcon /></a>
             </div>
         </div>
     </footer>
 );
 
 
-const menuVariants = {
-    open: {
-        transition: { staggerChildren: 0.07, delayChildren: 0.2 }
-    },
-    closed: {
-        transition: { staggerChildren: 0.05, staggerDirection: -1 }
-    }
-};
-
-const menuItemVariants = {
-    open: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            y: { stiffness: 1000, velocity: -100 }
-        }
-    },
-    closed: {
-        y: 50,
-        opacity: 0,
-        transition: {
-            y: { stiffness: 1000 }
-        }
-    }
-};
-
 const MenuOverlay = ({ scrollToSection, closeMenu }: { scrollToSection: (view: View) => void, closeMenu: () => void }) => (
-    <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+    <div
         className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4"
         onClick={(e) => {
             if (e.target === e.currentTarget) {
@@ -281,19 +208,11 @@ const MenuOverlay = ({ scrollToSection, closeMenu }: { scrollToSection: (view: V
             }
         }}
     >
-        <motion.nav 
-            variants={menuVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-            className="flex flex-col items-center gap-12 text-center max-h-full overflow-y-auto"
-        >
+        <nav className="flex flex-col items-center gap-12 text-center max-h-full overflow-y-auto">
             {guidedNavItems.map(item => (
-                <motion.button
+                <button
                     key={item.view}
-                    variants={menuItemVariants}
                     onClick={() => {
-                        playClickSound();
                         scrollToSection(item.view);
                         closeMenu();
                     }}
@@ -301,40 +220,15 @@ const MenuOverlay = ({ scrollToSection, closeMenu }: { scrollToSection: (view: V
                 >
                     <h2 className="font-exo text-6xl text-white group-hover:text-pink-500 transition-colors duration-300 leading-tight">{item.name}</h2>
                     <p className="font-grotesk text-lg text-white/60 mt-2 tracking-wider group-hover:text-pink-500/80 transition-colors duration-300">{item.description}</p>
-                </motion.button>
+                </button>
             ))}
-        </motion.nav>
-    </motion.div>
+        </nav>
+    </div>
 );
 
-const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkIsMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        checkIsMobile();
-        window.addEventListener('resize', checkIsMobile);
-        return () => window.removeEventListener('resize', checkIsMobile);
-    }, []);
-
-    if (isMobile) {
-        return <div className="w-full">{children}</div>;
-    }
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-            className="w-full"
-        >
-            {children}
-        </motion.div>
-    );
-};
+const AnimatedSection = ({ children }: { children: React.ReactNode }) => (
+    <div className="w-full">{children}</div>
+);
 
 export default function App() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -360,7 +254,6 @@ export default function App() {
     };
 
     const handleCloseMenu = () => {
-        playMenuCloseSound();
         setIsMenuOpen(false);
     };
 
@@ -422,9 +315,7 @@ export default function App() {
         
         <Footer />
         
-        <AnimatePresence>
-            {isMenuOpen && <MenuOverlay scrollToSection={scrollToSection} closeMenu={handleCloseMenu} />}
-        </AnimatePresence>
+        {isMenuOpen && <MenuOverlay scrollToSection={scrollToSection} closeMenu={handleCloseMenu} />}
     </div>
   );
 }
