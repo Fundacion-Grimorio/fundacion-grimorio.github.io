@@ -1,45 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" style="scroll-behavior: smooth;">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fundacion Grimorio</title>
+    <title>Grimorio Tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              exo: ['"Exo 2"', 'sans-serif'],
-              grotesk: ['"Space Grotesk"', 'sans-serif'],
-            },
-            colors: {
-              'brand-light': '#E5E4E9',
-              'brand-dark': '#111111',
-              'brand-pink': 'rgba(232, 63, 222, 0.5)',
-            }
-          }
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Exo 2', sans-serif;
+        background-color: #F5F5F7;
+        color: #1d1d1f;
       }
-    </script>
+
+      /* Initial state for on-scroll animations */
+      .reveal-initial {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+
+      /* Visible state for on-scroll animations */
+      .reveal-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Animations for Hero section on page load */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+      .animate-delay-200 { animation-delay: 200ms; }
+      .animate-delay-400 { animation-delay: 400ms; }
+
+      /* Animations for Modal */
+      @keyframes modalBackdropFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes modalPanelScaleIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-modal-backdrop {
+        animation: modalBackdropFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      .animate-modal-panel {
+        animation: modalPanelScaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+    </style>
   <script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://esm.sh/react-dom@19.0.0/",
-    "react/": "https://esm.sh/react@19.0.0/",
-    "react": "https://esm.sh/react@19.0.0",
-    "framer-motion": "https://esm.sh/framer-motion@11.2.13?deps=react@19.0.0",
-    "tone": "https://esm.sh/tone@15.0.4"
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
   }
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-brand-light">
+  <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

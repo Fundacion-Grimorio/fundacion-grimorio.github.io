@@ -1,5 +1,5 @@
 {
-  "name": "fundacion-grimorio",
+  "name": "grimorio-tech",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,14 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "framer-motion": "11.2.13",
-    "tone": "15.0.4"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "typescript": "~5.7.2",
+    "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
 }
